@@ -294,7 +294,72 @@
           Copyright © 2024 wootlab innovations. All rights reserved.
         </div>
       </footer>
-  
+
+        <style>
+        .chatbot-container {
+          position: fixed;
+          bottom: 10px;
+          right: 10px;
+          width: 400px;
+          height: 700px;
+          border: 1px solid #ccc;
+          border-radius: 10px;
+          overflow: hidden;
+          display: none; /* Initially hidden */
+        }
+      
+        .toggle-btn {
+          position: fixed;
+          bottom: 10px;
+          right: 10px;
+          background-color: #45a049;
+          color: white;
+          padding: 10px 15px;
+          border-radius: 5px;
+          cursor: pointer;
+          z-index: 10;
+        }
+      
+        .toggle-btn.open {
+          bottom: 720px; /* Adjust the value to position it above the open chatbot */
+        }
+
+        @media only screen and (max-width: 600px) {
+    .chatbot-container {
+      width: 90%;
+      height: 300px;
+    }
+  }
+      </style>
+      
+      <div class="chatbot-container" id="chatbot">
+        <iframe 
+           src="https://trans-chatbot.vercel.app" 
+           style="width: 100%; height: 100%; border: none;" 
+           title="Wootlab AI Translator Chatbot">
+        </iframe>
+      </div>
+      
+      <div class="toggle-btn" id="toggleChatbot">Open Chatbot</div>
+      
+      <script>
+        const chatbot = document.getElementById('chatbot');
+        const toggleBtn = document.getElementById('toggleChatbot');
+      
+        toggleBtn.addEventListener('click', () => {
+          if (chatbot.style.display === 'none' || chatbot.style.display === '') {
+            chatbot.style.display = 'block';
+            toggleBtn.textContent = 'Close Chatbot';
+            toggleBtn.classList.add('open'); // Move the toggle button above the chatbot
+          } else {
+            chatbot.style.display = 'none';
+            toggleBtn.textContent = 'Open Chatbot';
+            toggleBtn.classList.remove('open'); // Move the toggle button back to its original position
+          }
+        });
+      </script>
+
+    
       <script src="https://unpkg.com/scrollreveal"></script>
       <script src="mainscript.js"></script>
   
