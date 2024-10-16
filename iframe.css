@@ -1,0 +1,24 @@
+#chatbot-iframe {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 400px;
+    height: 1400px !important;  /* Force larger height */
+    min-height: 1400px !important; /* Force minimum height */
+    max-height: 90vh;
+    z-index: 1000;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 600px) {
+    #chatbot-iframe {
+        width: 100%;       /* On smaller screens, iframe takes up full width */
+        height: 0vh;      /* Height limited to half the screen height */
+        bottom: 0;         /* Stick to the bottom */
+        right: 0;          /* Stick to the right */
+        border-radius: 0;  /* Remove border radius for a seamless fit */
+    }
+}
